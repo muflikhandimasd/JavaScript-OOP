@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Inheritance</title>
+</head>
+<body>
+    <script>
+
+        
+        function Employee(firstName, lastName){
+            this.firstName = firstName;
+            this.sayHello = function(name){
+                console.info(`Hello ${name}, my name is ${this.firstName}`);
+            },
+            this.sayHi = name => console.info(`Hi ${name}, is your name : ${this.lastName}`);
+        }
+
+        function Manager(firstName, lastName){
+            // this merujuk ke function Constructor saat ini dan kirimin parameter si Employee
+            // Constructor Inheritance : Ngecopas constructor lain ke Constructor yang kita mau
+            Employee.call(this, firstName, lastName);
+            this.lastName = lastName;
+        }
+
+        const budi = new Manager('Muflikhan', 'Dimas');
+        console.info(budi);
+        budi.sayHello('Dono');
+        budi.sayHi('Rama');
+
+
+    </script>
+</body>
+</html>

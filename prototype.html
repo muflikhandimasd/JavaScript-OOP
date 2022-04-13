@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+
+<body>
+    <script>
+
+
+        function Person(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+
+        Person.prototype.sayBye = function(){
+            console.info('Good Bye');
+        }
+
+        Person.prototype.run = function(){
+            console.info(`${this.firstName} is running`);
+        }
+
+        const muflikhan = new Person('Muflikhan', 'Dimas');
+        // yang diakses ini object instance dulu, stlah itu jika gaada maka masuk ke prototype
+        muflikhan.sayBye = function(){
+            console.info('Sampai Jumpa');
+        }
+
+        const budi = new Person('Budi', 'Nugraha');
+
+        console.info(muflikhan);
+        console.info(budi);
+        muflikhan.sayBye();
+        budi.run();
+
+    </script>
+</body>
+
+</html>
